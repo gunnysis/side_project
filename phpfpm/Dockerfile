@@ -6,3 +6,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 
 # Could Not Find Driver
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# install npm and nodejs
+RUN apk add --update nodejs-current npm
