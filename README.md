@@ -13,3 +13,8 @@ DB_PASSWORD=1234
 ```
 6. php artisan migrate
 7. npm install --save-dev @vitejs/plugin-vue
+Addictional info)
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
