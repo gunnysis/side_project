@@ -12,3 +12,4 @@ DB_USERNAME=root
 DB_PASSWORD=1234
 ```
 6. php artisan migrate
+7. npm install --save-dev @vitejs/plugin-vue
