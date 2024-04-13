@@ -2,23 +2,23 @@ version: "3.8"
 
 services:
     php:
-        image: php:8.3.5RC1-fpm-alpine3.19
+        build: phpfpm
         restart: always
-        container_name: php
+        container_name: phpfpm_local
         volumes:
             - ./www:/var/www/html
         networks:
             - dev1
 
     nginx:
-        image: nginx:latest
+        build: nginx
         restart: always
-        container_name: mginx
+        container_name: nginx_local
         ports:
             - "80:80"
         volumes:
             - ./www:/var/www/html                # web root directory mount
-            - ./nginx:/etc/nginx/conf.d          # web server setting directory mount
+            - ./nginx_conf:/etc/nginx/conf.d          # web server setting directory mount
         networks:
             - dev1
 
@@ -26,17 +26,16 @@ services:
         image: mysql:8.0.33
         restart: always
         container_name: mysql8
+        ports:
+            -   3306:3306
         environment:
             MYSQL_ROOT_PASSWORD: 1234
             MYSQL_USER: admin
             MYSQL_PASSWORD: 1234
         volumes:
-            - database:/var/lib/mysql
+            - ./database:/var/lib/mysql
         networks:
             - dev1
 
 networks:
     dev1:
-
-volumes:
-    database:
