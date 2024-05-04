@@ -9,6 +9,8 @@ services:
             - ./www:/var/www/html
         networks:
             - dev1
+        environment:
+            TZ: Asia/Seoul
     nginx:
         build: nginx
         restart: always
@@ -20,6 +22,8 @@ services:
             - ./nginx_conf:/etc/nginx/conf.d          # web server setting directory mount
         networks:
             - dev1
+        environment:
+            TZ: Asia/Seoul
     db:
         image: mysql:8.0.33
         restart: always
@@ -30,6 +34,7 @@ services:
             MYSQL_ROOT_PASSWORD: 1234
             MYSQL_USER: admin
             MYSQL_PASSWORD: 1234
+            TZ: Asia/Seoul
         volumes:
             - ./database:/var/lib/mysql
         networks:
