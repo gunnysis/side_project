@@ -1,3 +1,5 @@
+### Environment: Nginx, php-fpm, Docker, mysql
+
 1. docker compose up -d
 2. docker exec -it phpfpm_local ash
 3. composer install
